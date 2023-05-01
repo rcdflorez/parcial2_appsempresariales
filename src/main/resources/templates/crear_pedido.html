@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Registro de pedido</title>
+    <link
+            rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+            crossorigin="anonymous"
+    />
+</head>
+<body>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <a class="navbar-brand" href="/">Home</a>
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/comerciales}">Control de comercios</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/clientes}">Control de clientes</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/pedidos}">Control de pedidos</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/clientes/pedidos}">Lista de clientes y pedidos</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<br />
+<div class="container">
+    <div class="row">
+        <div
+                class="
+            col-lg-6 col-md-6 col-sm-6
+            container
+            justify-content-center
+            card
+          "
+        >
+            <h1 class="text-center">Registro de pedido</h1>
+            <div class="card-body">
+                <form th:action="@{/pedidos}" th:object="${pedido}" method="POST">
+
+                    <div class="form-group">
+                        <label for="cantidad">Cantidad:</label>
+                        <input
+                            class="form-control"
+                            type="number"
+                            id="cantidad"
+                            name="cantidad"
+                            placeholder="Digite cantidad:"
+                            th:field="*{cantidad}"
+                            required />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="fecha">Fecha:</label>
+                        <input
+                                class="form-control"
+                                type="date"
+                                id="fecha"
+                                name="fecha"
+                                placeholder="fecha"
+                                th:field="*{fecha}"
+                                required />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cliente_id">Id de cliente:</label>
+                        <input
+                                class="form-control"
+                                type="number"
+                                id="cliente_id"
+                                name="cliente_id"
+                                placeholder="id de cliente"
+                                th:field="*{cliente}"
+                                required />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="comercial">Id de comercio:</label>
+                        <input
+                                class="form-control"
+                                type="number"
+                                id="comercial"
+                                name="comercial"
+                                placeholder="id de comercio"
+                                th:field="*{comercial}"
+                                required />
+                    </div>
+
+                    <div class="box-footer">
+                        <button class="btn btn-success">Guardar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
